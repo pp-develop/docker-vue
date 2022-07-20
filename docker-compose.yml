@@ -1,0 +1,17 @@
+version: '3.9'
+
+services:
+  app:
+    image: dokcer_vue:v1
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: dokcer_vue
+    ports:
+      - 5173:5173
+    working_dir: /src
+    volumes:
+      - ./vue-project:/src
+    environment:
+      - CHOKIDAR_USEPOLLING=true
+    tty: true
